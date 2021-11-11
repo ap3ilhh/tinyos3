@@ -4,7 +4,7 @@
 #include "kernel_proc.h"
 #include "kernel_streams.h"
 
-
+//
 /* 
  The process table and related system calls:
  - Exec
@@ -45,13 +45,14 @@ static inline void initialize_PCB(PCB* pcb)
   rlnode_init(& pcb->exited_node, pcb);
 
   /**********************************************/
-  /*arxikopoihsh listas kai thread_count*/
+  /*arxikopoihsh listas me ta ptcb kai thread_count*/
   rlnode_init(&pcb->ptcb_list,NULL);
   pcb->thread_count = 0;
 
   pcb->child_exit = COND_INIT;
 }
 
+/******************************************************/
 void initialize_PTCB(PTCB* ptcb)
 {
   ptcb->argl = 0;
